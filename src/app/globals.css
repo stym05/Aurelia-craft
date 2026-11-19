@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+html { scroll-behavior: smooth; }
+body { background: #FAF8F5; color: #22201E; font-family: 'Plus Jakarta Sans', Arial, sans-serif; }
+* { box-sizing: border-box; }
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+::selection { background: #e6b7b0; color: #22201e; }
+:focus-visible { outline: 2px solid #8f4f52; outline-offset: 3px; }
+@layer components {
+  .container-site { @apply mx-auto w-full max-w-site px-5 md:px-10 xl:px-16; }
+  .eyebrow { @apply text-[10px] font-semibold uppercase tracking-editorial text-gold; }
+  .editorial-title { @apply font-serif text-[32px] leading-[1.17] tracking-tight md:text-[42px]; }
+  .btn-dark { @apply inline-flex items-center justify-center gap-2 rounded-[3px] bg-ink px-7 py-3.5 text-[10px] font-semibold uppercase tracking-editorial text-canvas transition-colors hover:bg-champagne hover:text-ink disabled:opacity-50; }
+  .btn-light { @apply inline-flex items-center justify-center gap-2 rounded-[3px] border border-line bg-paper px-5 py-3 text-[10px] font-semibold uppercase tracking-editorial text-ink transition-colors hover:border-champagne; }
+  .btn-outline { @apply inline-flex items-center justify-center rounded-[3px] border border-ink px-7 py-3.5 text-[10px] font-semibold uppercase tracking-editorial text-ink transition-colors hover:bg-ink hover:text-canvas; }
+  .text-link { @apply inline-block border-b border-ink/60 pb-1 text-[10px] font-semibold uppercase tracking-editorial text-ink transition-colors hover:border-gold hover:text-gold; }
+  .input-field { @apply min-w-0 rounded-[3px] border border-line bg-canvas px-3 py-2.5 text-sm text-ink outline-none transition-colors placeholder:text-muted/70 focus:border-champagne; }
+  .hover-image { @apply transition-transform duration-500 ease-out group-hover:scale-[1.035]; }
+}
+
+.home-hero {
+  background:
+    radial-gradient(circle at 76% 20%, rgba(201, 143, 134, .16), transparent 24rem),
+    linear-gradient(135deg, #faf8f5 0%, #f7f1ec 55%, #eee4dc 100%);
+}
+
+.hero-orbit::after {
+  content: "";
+  position: absolute;
+  width: .55rem;
+  height: .55rem;
+  border-radius: 999px;
+  background: #c98f86;
+  right: .75rem;
+  top: .65rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-orbit { animation: soft-float 7s ease-in-out infinite; }
+  @keyframes soft-float { 50% { transform: translateY(10px) rotate(4deg); } }
+}

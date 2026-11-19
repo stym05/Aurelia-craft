@@ -1,0 +1,12 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+
+export const metadata: Metadata = { title: "Jewelry Care Guide", description: "How to care for rose-gold plated and sterling-silver jewellery." };
+const care = [
+  {title:"Everyday Ritual",text:"Remove jewelry before showering, swimming, exercising or using household cleaning products. Finish dressing, perfume and skincare before putting on your pieces."},
+  {title:"Rose Gold & Plated Metals",text:"Use a soft, dry, non-abrasive cloth. Avoid silver dips, polishing compounds, aggressive scrubbing and steam cleaners on plated surfaces."},
+  {title:"Sterling Silver",text:"Wipe gently after wear and store in a dry, closed pouch. Use only a cloth made for sterling silver, and keep it away from plated details."},
+  {title:"Storage",text:"Store pieces individually in a soft pouch or lined keepsake box, away from direct sunlight, moisture and high heat."},
+  {title:"Repairs & Re-finishing",text:"For refinishing, sizing, clasps or repairs, speak with the atelier. Actual services, charges and availability should be confirmed before sending a piece."},
+];
+export default function CareGuidePage(){return <div className="container-site max-w-[980px] py-14 md:py-20"><p className="eyebrow mb-3">Client Care · Atelier Notes</p><h1 className="font-serif text-[42px] md:text-[56px]">Care for Your <em>Heirlooms</em></h1><p className="mt-5 max-w-2xl text-sm leading-8 text-muted">Thoughtful habits help preserve the finish, texture and luster of a handcrafted talisman. These are general care recommendations; always follow the guidance supplied with your individual piece.</p><div className="mt-10 space-y-3">{care.map((entry,i) => <details key={entry.title} open={i===0 ? true:undefined} className="group rounded-md border border-line bg-paper p-5"><summary className="cursor-pointer font-serif text-xl">{entry.title} <span className="float-right text-gold">+</span></summary><p className="mt-4 border-t border-line pt-4 text-sm leading-8 text-muted">{entry.text}</p></details>)}</div><div className="mt-12 rounded border border-line bg-[#f3e4e1] p-7"><h2 className="font-serif text-2xl">Need personal guidance?</h2><p className="mt-2 text-sm leading-7 text-muted">If you have a question about a silver or rose-gold finish, or the best way to store your piece, our atelier can help.</p><Link href="/contact" className="btn-dark mt-5">Contact the Atelier</Link></div></div>}

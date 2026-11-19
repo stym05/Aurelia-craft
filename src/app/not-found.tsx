@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function NotFound(){return <div className="container-site flex min-h-[55vh] flex-col items-center justify-center text-center"><p className="eyebrow">Atelier Archive · 404</p><h1 className="mt-3 font-serif text-4xl">This heirloom cannot be found</h1><p className="mt-3 text-sm text-muted">Explore the collection to discover another one-of-a-kind piece.</p><Link href="/collections" className="btn-dark mt-7">Explore Collection</Link></div>}
