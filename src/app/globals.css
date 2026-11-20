@@ -14,15 +14,20 @@ button:disabled { cursor: not-allowed; }
 :focus-visible { outline: 2px solid #8f4f52; outline-offset: 3px; }
 @layer components {
   .container-site { @apply mx-auto w-full max-w-site px-5 md:px-10 xl:px-16; }
-  .eyebrow { @apply text-[10px] font-semibold uppercase tracking-editorial text-gold; }
+  .eyebrow { @apply text-xs font-semibold uppercase tracking-editorial text-gold; }
   .editorial-title { @apply font-serif text-[32px] leading-[1.17] tracking-tight md:text-[42px]; }
-  .btn-dark { @apply inline-flex items-center justify-center gap-2 rounded-[3px] bg-ink px-7 py-3.5 text-[10px] font-semibold uppercase tracking-editorial text-canvas transition-colors hover:bg-champagne hover:text-ink disabled:opacity-50; }
-  .btn-light { @apply inline-flex items-center justify-center gap-2 rounded-[3px] border border-line bg-paper px-5 py-3 text-[10px] font-semibold uppercase tracking-editorial text-ink transition-colors hover:border-champagne; }
-  .btn-outline { @apply inline-flex items-center justify-center rounded-[3px] border border-ink px-7 py-3.5 text-[10px] font-semibold uppercase tracking-editorial text-ink transition-colors hover:bg-ink hover:text-canvas; }
-  .text-link { @apply inline-block border-b border-ink/60 pb-1 text-[10px] font-semibold uppercase tracking-editorial text-ink transition-colors hover:border-gold hover:text-gold; }
+  .btn-dark { @apply inline-flex items-center justify-center gap-2 rounded-[3px] bg-ink px-7 py-3.5 text-xs font-semibold uppercase tracking-editorial text-canvas transition-colors hover:bg-champagne hover:text-ink disabled:opacity-50; }
+  .btn-light { @apply inline-flex items-center justify-center gap-2 rounded-[3px] border border-line bg-paper px-5 py-3 text-xs font-semibold uppercase tracking-editorial text-ink transition-colors hover:border-champagne; }
+  .btn-outline { @apply inline-flex items-center justify-center rounded-[3px] border border-ink px-7 py-3.5 text-xs font-semibold uppercase tracking-editorial text-ink transition-colors hover:bg-ink hover:text-canvas; }
+  .text-link { @apply inline-block border-b border-ink/60 pb-1 text-xs font-semibold uppercase tracking-editorial text-ink transition-colors hover:border-gold hover:text-gold; }
   .input-field { @apply min-w-0 rounded-[3px] border border-line bg-canvas px-3 py-2.5 text-sm text-ink outline-none transition-colors placeholder:text-muted/70 focus:border-champagne; }
   .hover-image { @apply transition-transform duration-500 ease-out group-hover:scale-[1.035]; }
 }
+
+/* Keep ornamental microcopy readable without flattening the editorial hierarchy. */
+.text-\[8px\],
+.text-\[9px\] { font-size: 11px; }
+.text-\[10px\] { font-size: 12px; }
 
 .home-hero {
   background:

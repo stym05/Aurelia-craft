@@ -84,14 +84,14 @@ export function CollectionClient({ initial }: { initial: { category?: string; se
     filters.search ? ["search", `“${filters.search}”`] : null,
   ].filter((entry): entry is string[] => entry !== null);
 
-  const selectClass = "w-full appearance-none rounded-[3px] border border-line bg-canvas py-2.5 pl-3 pr-9 text-[11px] font-medium text-ink outline-none transition-colors hover:border-champagne focus:border-gold";
+  const selectClass = "w-full appearance-none rounded-[3px] border border-line bg-canvas py-2.5 pl-3 pr-9 text-[13px] font-medium text-ink outline-none transition-colors hover:border-champagne focus:border-gold";
 
   return (
     <>
       <section className="overflow-hidden border-b border-line bg-[#f6eeec]">
         <div className="container-site grid items-center gap-9 py-10 md:py-14 lg:grid-cols-[1fr_.82fr] lg:gap-16 lg:py-16">
           <div>
-            <nav aria-label="Breadcrumb" className="mb-8 flex items-center gap-2 text-[10px] uppercase tracking-[.13em] text-muted">
+            <nav aria-label="Breadcrumb" className="mb-8 flex items-center gap-2 text-[11px] uppercase tracking-[.12em] text-muted">
               <Link href="/" className="transition-colors hover:text-gold">Home</Link>
               <span className="text-champagne">/</span>
               <span>Collections</span>
@@ -108,7 +108,7 @@ export function CollectionClient({ initial }: { initial: { category?: string; se
                   type="button"
                   aria-pressed={filters.category === category}
                   onClick={() => update({ category })}
-                  className={`rounded-[3px] border px-4 py-2.5 text-[10px] font-semibold uppercase tracking-[.1em] transition-colors ${filters.category === category ? "border-gold bg-gold text-white" : "border-line bg-canvas/70 text-ink hover:border-champagne"}`}
+                  className={`rounded-[3px] border px-4 py-2.5 text-xs font-semibold uppercase tracking-[.1em] transition-colors ${filters.category === category ? "border-gold bg-gold text-white" : "border-line bg-canvas/70 text-ink hover:border-champagne"}`}
                 >
                   {category === "all" ? "Shop all" : category}
                 </button>
@@ -123,7 +123,7 @@ export function CollectionClient({ initial }: { initial: { category?: string; se
             <div className="absolute bottom-6 left-0 aspect-[4/5] w-[42%] overflow-hidden border-[8px] border-[#f6eeec] bg-paper shadow-[0_18px_55px_rgba(95,55,58,.13)]">
               <EditorialImage src={products[4].image} fallback={products[4].fallback} alt="Rose-gold plated silver ring from the temporary GIVA reference edit" sizes="280px" />
             </div>
-            <div className="absolute left-[21%] top-6 flex h-20 w-20 items-center justify-center rounded-full border border-champagne/70 bg-canvas/80 text-center text-[9px] font-semibold uppercase tracking-[.12em] text-gold backdrop-blur">
+            <div className="absolute left-[21%] top-6 flex h-20 w-20 items-center justify-center rounded-full border border-champagne/70 bg-canvas/80 text-center text-[11px] font-semibold uppercase tracking-[.1em] text-gold backdrop-blur">
               12 GIVA<br />references
             </div>
           </div>
@@ -185,7 +185,7 @@ export function CollectionClient({ initial }: { initial: { category?: string; se
               </select>
               <ChevronDown aria-hidden="true" size={14} className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-muted" />
             </div>
-            <label className="flex cursor-pointer items-center gap-2 py-2 text-[11px] font-semibold uppercase tracking-[.08em] text-ink">
+            <label className="flex cursor-pointer items-center gap-2 py-2 text-xs font-semibold uppercase tracking-[.08em] text-ink">
               <input type="checkbox" checked={filters.stock} onChange={(event) => update({ stock: event.target.checked })} className="h-4 w-4 accent-gold" />
               In stock
             </label>
@@ -193,18 +193,18 @@ export function CollectionClient({ initial }: { initial: { category?: string; se
 
           {active.length > 0 && (
             <div className="mt-3 flex flex-wrap items-center gap-2 border-t border-line pt-3">
-              <span className="mr-1 text-[10px] uppercase tracking-[.12em] text-muted">Your edit</span>
+              <span className="mr-1 text-xs uppercase tracking-[.12em] text-muted">Your edit</span>
               {active.map(([key, label]) => (
                 <button
                   key={key}
                   type="button"
-                  className="inline-flex items-center gap-1.5 rounded-[3px] bg-[#f3e4e1] px-2.5 py-1.5 text-[10px] font-medium text-gold transition-colors hover:bg-[#ead3cf]"
+                  className="inline-flex items-center gap-1.5 rounded-[3px] bg-[#f3e4e1] px-2.5 py-1.5 text-xs font-medium text-gold transition-colors hover:bg-[#ead3cf]"
                   onClick={() => update(key === "stock" ? { stock: false } : { [key]: key === "search" ? "" : "all" })}
                 >
                   {label}<X size={12} />
                 </button>
               ))}
-              <button type="button" onClick={() => update(EMPTY)} className="ml-1 text-[10px] font-semibold uppercase tracking-[.1em] text-muted underline decoration-line underline-offset-4 hover:text-gold">Clear all</button>
+              <button type="button" onClick={() => update(EMPTY)} className="ml-1 text-xs font-semibold uppercase tracking-[.1em] text-muted underline decoration-line underline-offset-4 hover:text-gold">Clear all</button>
             </div>
           )}
         </div>
@@ -252,7 +252,7 @@ export function CollectionClient({ initial }: { initial: { category?: string; se
 
         {sorted.length > 0 && (
           <div className="mt-14 flex flex-col items-center gap-4 text-center">
-            <p className="text-[11px] uppercase tracking-[.13em] text-muted">Showing {visible.length} of {sorted.length} pieces</p>
+            <p className="text-xs uppercase tracking-[.12em] text-muted">Showing {visible.length} of {sorted.length} pieces</p>
             <div className="h-px w-24 bg-champagne" />
             {visible.length < sorted.length && <button type="button" onClick={() => setLimit((value) => value + 8)} className="btn-outline min-w-56">View more pieces</button>}
           </div>
